@@ -1,6 +1,6 @@
 input.onButtonPressed(Button.A, function () {
     let recopilar = 0
-    logging = !(logging)
+    logging = true
     if (recopilar) {
         basic.showIcon(IconNames.Yes)
     } else {
@@ -8,9 +8,12 @@ input.onButtonPressed(Button.A, function () {
     }
     music.playSoundEffect(music.builtinSoundEffect(soundExpression.giggle), SoundExpressionPlayMode.UntilDone)
 })
+input.onButtonPressed(Button.B, function () {
+    logging = false
+})
 let logging = false
 logging = false
-loops.everyInterval(500, function () {
+loops.everyInterval(1000, function () {
     if (logging) {
         datalogger.log(
         datalogger.createCV("temp", input.temperature()),
